@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\MovementController;
+use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,5 +11,9 @@ Route::get('/user', function (Request $request) {
 
 
 Route::apiResource('movement', MovementController::class)->except(([
-    'create', 'show', 'edit'
+    'create', 'edit'
+]));
+
+Route::apiResource('users', UsersController::class)->except(([
+    'show', 'edit', 'create'
 ]));
